@@ -24,13 +24,13 @@ extension UIView {
 
 public extension UIView {
     
-    public struct UIViewBorder {
+    struct UIViewBorder {
         var cornerRadius: CGFloat = 0
         var cornerCurve: CALayerCornerCurve = .continuous
         var borderColor: UIColor = .clear
         var thickness: CGFloat = 0
         
-        public init(cornerRadius: CGFloat, cornerCurve: CALayerCornerCurve, borderColor: UIColor, thickness: CGFloat) {
+        public init(cornerRadius: CGFloat = 0, cornerCurve: CALayerCornerCurve = .continuous, borderColor: UIColor = .clear, thickness: CGFloat = 0) {
             self.cornerRadius = cornerRadius
             self.cornerCurve = cornerCurve
             self.borderColor = borderColor
@@ -39,7 +39,7 @@ public extension UIView {
     }
     
     @discardableResult
-    public func sBorder<T: UIView>(_ border: UIViewBorder) -> T {
+    func sBorder<T: UIView>(_ border: UIViewBorder) -> T {
         layer.cornerCurve = border.cornerCurve
         layer.cornerRadius = border.cornerRadius
         layer.borderWidth = border.thickness
@@ -48,61 +48,61 @@ public extension UIView {
     }
 
     @discardableResult
-    public func sIsHidden<T: UIView>(_ isHidden: Bool) -> T {
+    func sIsHidden<T: UIView>(_ isHidden: Bool) -> T {
         self.isHidden = isHidden
         return self as! T
     }
 
     @discardableResult
-    public func sAlpha<T: UIView>(_ alpha: Double) -> T {
+    func sAlpha<T: UIView>(_ alpha: Double) -> T {
         self.alpha = CGFloat(alpha)
         return self as! T
     }
     
     @discardableResult
-    public func sMasksToBounds<T: UIView>(_ masksToBounds: Bool) -> T {
+    func sMasksToBounds<T: UIView>(_ masksToBounds: Bool) -> T {
         self.layer.masksToBounds = masksToBounds
         return self as! T
     }
 
     @discardableResult
-    public func sZPosition<T: UIView>(_ zPosition: CGFloat) -> T {
+    func sZPosition<T: UIView>(_ zPosition: CGFloat) -> T {
         self.layer.zPosition = zPosition
         return self as! T
     }
 
     @discardableResult
-    public func sBackgroundColor<T: UIView>(_ backgroundColor: UIColor) -> T {
+    func sBackgroundColor<T: UIView>(_ backgroundColor: UIColor) -> T {
         self.backgroundColor = backgroundColor
         return self as! T
     }
 
     @discardableResult
-    public func sTintColor<T: UIView>(_ tintColor: UIColor) -> T {
+    func sTintColor<T: UIView>(_ tintColor: UIColor) -> T {
         self.tintColor = tintColor
         return self as! T
     }
 
     @discardableResult
-    public func sTransform<T: UIView>(_ transform: CGAffineTransform) -> T {
+    func sTransform<T: UIView>(_ transform: CGAffineTransform) -> T {
         self.transform = transform
         return self as! T
     }
     
     @discardableResult
-    public func sTag<T: UIView>(_ tag: Int) -> T {
+    func sTag<T: UIView>(_ tag: Int) -> T {
         self.tag = tag
         return self as! T
     }
 
     @discardableResult
-    public func sFrame<T: UIView>(_ frame: CGRect) -> T {
+    func sFrame<T: UIView>(_ frame: CGRect) -> T {
         self.frame = frame
         return self as! T
     }
     
     @discardableResult
-    public func sGestureRecognizer<T: UIView>(_ gestureRecognizer: UIGestureRecognizer) -> T {
+    func sGestureRecognizer<T: UIView>(_ gestureRecognizer: UIGestureRecognizer) -> T {
         self.addGestureRecognizer(gestureRecognizer)
         return self as! T
     }

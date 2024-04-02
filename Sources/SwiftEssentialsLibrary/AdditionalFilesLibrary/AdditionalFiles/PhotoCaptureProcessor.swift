@@ -11,22 +11,22 @@ import Photos
 open class PhotoCaptureProcessor: NSObject {
     public var requestedPhotoSettings: AVCapturePhotoSettings
     
-    private let willCapturePhotoAnimation: () -> Void
+    public let willCapturePhotoAnimation: () -> Void
         
-    lazy var context = CIContext()
+    public lazy var context = CIContext()
     
-    private let completionHandler: (PhotoCaptureProcessor) -> Void
+    public let completionHandler: (PhotoCaptureProcessor) -> Void
     
-    private let photoProcessingHandler: (Bool) -> Void
+    public let photoProcessingHandler: (Bool) -> Void
     
-    private var photo: AVCapturePhoto?
+    public var photo: AVCapturePhoto?
         
-    private var portraitEffectsMatteData: Data?
+    public var portraitEffectsMatteData: Data?
     
-    private var maxPhotoProcessingTime: CMTime?
+    public var maxPhotoProcessingTime: CMTime?
 
     // Save the location of captured photos
-    var location: CLLocation?
+    public var location: CLLocation?
 
     public init(with requestedPhotoSettings: AVCapturePhotoSettings,
          willCapturePhotoAnimation: @escaping () -> Void,

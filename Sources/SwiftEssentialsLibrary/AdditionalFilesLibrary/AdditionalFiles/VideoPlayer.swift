@@ -72,13 +72,13 @@ open class VideoPlayer : NSObject {
             }
         }
     }
-    var currentTimeSeconds: Double? {
+    public var currentTimeSeconds: Double? {
         return assetPlayer == nil ? nil : CMTimeGetSeconds(assetPlayer!.currentTime())
     }
 
     // MARK: - Init
 
-    convenience init(urlAsset:NSURL, view:PlayerView, startAutoPlay:Bool = true, repeatAfterEnd:Bool = true) {
+    public convenience init(urlAsset:NSURL, view:PlayerView, startAutoPlay:Bool = true, repeatAfterEnd:Bool = true) {
         self.init()
 
         playerView = view
@@ -101,7 +101,7 @@ open class VideoPlayer : NSObject {
         prepareToPlay()
     }
 
-    override init() {
+    public override init() {
         super.init()
     }
 
