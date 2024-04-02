@@ -8,10 +8,10 @@
 import UIKit
 import SwiftUI
 
-final class HostingTableViewCell<Content: View>: UITableViewCell {
-    private let hostingController = UIHostingController<Content?>(rootView: nil)
+open class HostingTableViewCell<Content: View>: UITableViewCell {
+    public let hostingController = UIHostingController<Content?>(rootView: nil)
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         hostingController.view.backgroundColor = .clear
         hostingController.disableSafeArea() //THIS IS KEY
@@ -19,7 +19,7 @@ final class HostingTableViewCell<Content: View>: UITableViewCell {
         backgroundColor = .clear
     }
     
-    private func removeHostingControllerFromParent() {
+    open func removeHostingControllerFromParent() {
         hostingController.willMove(toParent: nil)
         hostingController.view.removeFromSuperview()
         hostingController.removeFromParent()
@@ -31,11 +31,11 @@ final class HostingTableViewCell<Content: View>: UITableViewCell {
     }
     
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ final class HostingTableViewCell<Content: View>: UITableViewCell {
         ])
     }
     
-    func set(rootView: Content, parentController: UIViewController) {
+    open func set(rootView: Content, parentController: UIViewController) {
         hostingController.rootView = rootView
         hostingController.view.invalidateIntrinsicContentSize()
         

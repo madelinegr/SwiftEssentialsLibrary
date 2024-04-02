@@ -11,6 +11,11 @@ open class KeyboardObserver: ObservableObject {
     @Published var isShowing = false
     @Published var height: CGFloat = 0
     
+    public init(isShowing: Bool = false, height: CGFloat) {
+        self.isShowing = isShowing
+        self.height = height
+    }
+    
     public func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)

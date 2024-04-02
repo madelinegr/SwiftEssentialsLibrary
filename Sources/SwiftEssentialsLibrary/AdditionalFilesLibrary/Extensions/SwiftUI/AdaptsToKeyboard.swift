@@ -10,7 +10,7 @@ import Combine
 
 //using keyboard responder as observedobject was more reliable
 @MainActor
-final class KeyboardResponder: ObservableObject {
+open class KeyboardResponder: ObservableObject {
     private var notificationCenter: NotificationCenter
     @Published public private(set) var currentHeight: CGFloat = 0
 
