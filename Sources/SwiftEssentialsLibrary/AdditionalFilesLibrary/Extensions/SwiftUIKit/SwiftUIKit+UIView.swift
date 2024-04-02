@@ -29,6 +29,13 @@ public extension UIView {
         var cornerCurve: CALayerCornerCurve = .continuous
         var borderColor: UIColor = .clear
         var thickness: CGFloat = 0
+        
+        public init(cornerRadius: CGFloat, cornerCurve: CALayerCornerCurve, borderColor: UIColor, thickness: CGFloat) {
+            self.cornerRadius = cornerRadius
+            self.cornerCurve = cornerCurve
+            self.borderColor = borderColor
+            self.thickness = thickness
+        }
     }
     
     @discardableResult
