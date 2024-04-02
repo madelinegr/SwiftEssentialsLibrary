@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-extension CLLocationCoordinate2D {
+public extension CLLocationCoordinate2D {
     
     func distanceInMeters(from otherCoordinate: CLLocationCoordinate2D) -> CLLocationDistance {
         let myLocation = CLLocation(latitude: self.latitude,

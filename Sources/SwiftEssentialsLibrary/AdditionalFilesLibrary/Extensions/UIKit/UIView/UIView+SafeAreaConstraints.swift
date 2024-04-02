@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
 
   var safeTopAnchor: NSLayoutYAxisAnchor {
     if #available(iOS 11.0, *) {

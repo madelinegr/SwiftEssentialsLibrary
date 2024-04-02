@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     
     //apply shadow just to the tableView's sections, and not to the headers, too
     //perhaps another way around this issue is just to use a custom header view instead of the header text... anyways, this works for now

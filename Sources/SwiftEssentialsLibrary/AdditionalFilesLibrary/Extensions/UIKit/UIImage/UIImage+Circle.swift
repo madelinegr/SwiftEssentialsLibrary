@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
         
     class func circleImageWith(size: CGSize, backgroundColor: UIColor) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)

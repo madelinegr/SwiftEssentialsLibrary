@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     
     func convertLatDeltaToKms(_ latDelta: Double) -> Double {
         return latDelta * 69 * 1.6

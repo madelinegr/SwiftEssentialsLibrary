@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     func addFloatingButton() {
         let floatingButton = UIButton()

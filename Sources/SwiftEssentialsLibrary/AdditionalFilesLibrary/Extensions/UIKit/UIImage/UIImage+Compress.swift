@@ -10,7 +10,7 @@ import UIKit
 
 //Reference for compression: https://stackoverflow.com/questions/29137488/how-do-i-resize-the-uiimage-to-reduce-upload-image-size
 //Reference for scale: https://stackoverflow.com/questions/68137401/uiimage-not-equivalent-when-encoding-decoding/68137443#68137443
-extension UIImage {
+public extension UIImage {
     
     func compress(toMaxKBs kb: Int, allowedMargin: CGFloat = 0.2) -> Data {
         guard kb > 10 else { return Data() } // Prevents user from compressing below a limit (10kb in this case).

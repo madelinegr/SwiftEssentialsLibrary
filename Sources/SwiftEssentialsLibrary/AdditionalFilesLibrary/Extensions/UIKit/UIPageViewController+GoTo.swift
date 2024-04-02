@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIPageViewController {
+public extension UIPageViewController {
     func goToNextPage(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         if let currentViewController = viewControllers?[0] {
             if let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) {

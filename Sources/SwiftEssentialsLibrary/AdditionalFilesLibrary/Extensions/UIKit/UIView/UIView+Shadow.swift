@@ -8,7 +8,7 @@
 import UIKit
 
 //https://stackoverflow.com/questions/39624675/add-shadow-on-uiview-using-swift-3
-func applyShadowOnView(_ view: UIView) {
+public func applyShadowOnView(_ view: UIView) {
     view.layer.shadowColor = UIColor.darkGray.cgColor
     view.layer.shadowOpacity = 0.4
     view.layer.shadowOffset = .zero
@@ -18,7 +18,7 @@ func applyShadowOnView(_ view: UIView) {
     }
 }
 
-extension UIView {
+public extension UIView {
     func applyLightLeftShadow() {
         layer.applySketchShadow(color: .black, alpha: 0.10, x: -2, y: 2, blur: 2, spread: 0)
     }
@@ -82,7 +82,7 @@ extension UIView {
 }
 
 
-extension CALayer {
+public extension CALayer {
   func applySketchShadow(
     color: UIColor = .black,
     alpha: Float = 0.5,

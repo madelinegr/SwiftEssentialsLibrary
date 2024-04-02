@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
     func onTouchDownGesture(onTapDown: @escaping () -> Void = {}, onTapUp: @escaping () -> Void = {}) -> some View {
         modifier(OnTouchDownGestureModifier(onTapDown: onTapDown, onTapUp: onTapUp))
     }

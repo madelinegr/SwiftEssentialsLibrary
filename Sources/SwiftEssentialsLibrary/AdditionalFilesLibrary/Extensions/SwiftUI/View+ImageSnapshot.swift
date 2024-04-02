@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
     func snapshot() -> UIImage {
         let controller = UIHostingController(rootView: self)
         let view = controller.view

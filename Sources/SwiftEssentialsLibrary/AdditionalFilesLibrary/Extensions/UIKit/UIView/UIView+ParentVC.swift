@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     func parentViewController() -> UIViewController? {
         if let nextResponder = self.next as? UIViewController {
             return nextResponder

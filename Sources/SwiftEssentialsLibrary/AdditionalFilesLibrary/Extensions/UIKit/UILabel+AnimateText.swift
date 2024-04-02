@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     func animate(newText: String, characterDelay: TimeInterval, forward: Bool, completion: (() -> Void)? = nil) {
         if forward {
             let oldText = self.text ?? ""
@@ -45,7 +45,7 @@ extension UILabel {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func typewriter(newAttributedText: NSAttributedString, characterDelay: TimeInterval, impactIntensity: Double? = 0.6, pauseDurationAtLinebreak: Double? = nil, completion: (() -> Void)? = nil) {
         // Set the attributed text with alpha 0 for each character
         let mutableAttributedText = NSMutableAttributedString(attributedString: newAttributedText)
@@ -88,7 +88,7 @@ extension UILabel {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     func typewriter(newText: String, characterDelay: TimeInterval, completion: (() -> Void)? = nil) {
         // Set the text with empty string
         self.text = ""

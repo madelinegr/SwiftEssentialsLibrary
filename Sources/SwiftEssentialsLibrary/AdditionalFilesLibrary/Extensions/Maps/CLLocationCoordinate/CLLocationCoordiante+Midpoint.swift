@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-extension CLLocationCoordinate2D {
+public extension CLLocationCoordinate2D {
     
     func geographicMidpoint(betweenCoordinates userGivenCoordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         var allCoordinates = userGivenCoordinates
@@ -47,7 +47,7 @@ extension CLLocationCoordinate2D {
     
 }
 
-extension CLLocationCoordinate2D {
+public extension CLLocationCoordinate2D {
     
     static func geographicMidpoint(betweenCoordinates coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         
@@ -81,11 +81,11 @@ extension CLLocationCoordinate2D {
     
 }
 
-extension BinaryInteger {
+public extension BinaryInteger {
     var degreesToRadians: CGFloat { CGFloat(self) * .pi / 180 }
 }
 
-extension FloatingPoint {
+public extension FloatingPoint {
     var degreesToRadians: Self { self * .pi / 180 }
     var radiansToDegrees: Self { self * 180 / .pi }
 }

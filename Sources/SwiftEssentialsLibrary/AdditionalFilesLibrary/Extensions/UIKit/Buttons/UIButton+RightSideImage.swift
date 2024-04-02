@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     func setImageToRightSide() {
         translatesAutoresizingMaskIntoConstraints = false
         imageView?.translatesAutoresizingMaskIntoConstraints = false

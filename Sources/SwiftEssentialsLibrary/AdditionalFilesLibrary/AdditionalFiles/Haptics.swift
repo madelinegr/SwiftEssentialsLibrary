@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreHaptics
 
-class Haptics: NSObject {
+public class Haptics: NSObject {
     
     static let introVid = Haptics()
     static let outcome = Haptics()
@@ -18,11 +18,11 @@ class Haptics: NSObject {
 
     //MARK: - Standard
     
-    enum StandardizedHaptic {
+    public enum StandardizedHaptic {
         case light, medium, heavy
     }
     
-    static func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle, intensity: CGFloat = 1) {
+    public static func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle, intensity: CGFloat = 1) {
         UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred(intensity: intensity)
     }
     
@@ -30,7 +30,7 @@ class Haptics: NSObject {
         UINotificationFeedbackGenerator().notificationOccurred(feedbackType)
     }
 
-    static func play(_ standardizedHaptic: StandardizedHaptic) {
+    public static func play(_ standardizedHaptic: StandardizedHaptic) {
         switch standardizedHaptic {
         case .light:
             play(.light, intensity: 0.55)
@@ -41,28 +41,28 @@ class Haptics: NSObject {
         }
     }
     
-    var engine: CHHapticEngine? = nil
-    var rumblePlayer: CHHapticAdvancedPatternPlayer? = nil
-    var player: CHHapticAdvancedPatternPlayer? = nil
+    public var engine: CHHapticEngine? = nil
+    public var rumblePlayer: CHHapticAdvancedPatternPlayer? = nil
+    public var player: CHHapticAdvancedPatternPlayer? = nil
     
-    func stop() {
+    public func stop() {
         try? player?.cancel()
         try? rumblePlayer?.cancel()
     }
     
-    func pause(time: Double) {
+    public func pause(time: Double) {
         try? player?.pause(atTime: time)
         try? rumblePlayer?.pause(atTime: time)
     }
     
-    func resume(time: Double) {
+    public func resume(time: Double) {
         try? player?.resume(atTime: time)
         try? rumblePlayer?.resume(atTime: time)
     }
     
     //MARK: - Twodrop
     
-    func playTwodropHaptics(duration: Double) {
+    public func playTwodropHaptics(duration: Double) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         do {
             engine = try CHHapticEngine()
@@ -74,7 +74,7 @@ class Haptics: NSObject {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
-    func twodropParamCurve(duration: Double) -> [CHHapticParameterCurve] {
+    public func twodropParamCurve(duration: Double) -> [CHHapticParameterCurve] {
         return [
             CHHapticParameterCurve(
                 parameterID: .hapticIntensityControl,
@@ -85,7 +85,7 @@ class Haptics: NSObject {
                 relativeTime: 0)
         ]
     }
-    func twodropHapticEvents(duration: Double) -> [CHHapticEvent] {
+    public func twodropHapticEvents(duration: Double) -> [CHHapticEvent] {
         let buildUpHaptic = CHHapticEvent(
             eventType: .hapticContinuous,
             parameters: [
@@ -99,7 +99,7 @@ class Haptics: NSObject {
     
     //MARK: - Camera
     
-    func playCameraHaptics(duration: Double, maxDuration: Double? = nil) {
+    public func playCameraHaptics(duration: Double, maxDuration: Double? = nil) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         do {
             engine = try CHHapticEngine()
@@ -111,7 +111,7 @@ class Haptics: NSObject {
             print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
-    func cameraParamCurve(duration: Double, maxDuration: Double? = nil) -> [CHHapticParameterCurve] {
+    public func cameraParamCurve(duration: Double, maxDuration: Double? = nil) -> [CHHapticParameterCurve] {
         var controlPoints: [CHHapticParameterCurve.ControlPoint] = [
             .init(relativeTime: 0, value: 0.1),
             .init(relativeTime: duration, value: 0.4),
@@ -133,7 +133,7 @@ class Haptics: NSObject {
                 relativeTime: 0)
         ]
     }
-    func cameraHapticEvents(duration: Double, maxDuration: Double? = nil) -> [CHHapticEvent] {
+    public func cameraHapticEvents(duration: Double, maxDuration: Double? = nil) -> [CHHapticEvent] {
         var events: [CHHapticEvent] = []
         let buildUpHaptic = CHHapticEvent(
             eventType: .hapticContinuous,
@@ -157,7 +157,7 @@ class Haptics: NSObject {
     
     //MARK: - Outcome
     
-    func playOutcomeHaptics() {
+    public func playOutcomeHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         do {
             engine = try CHHapticEngine()
@@ -207,7 +207,7 @@ class Haptics: NSObject {
     
     //MARK: - Intro Vid
     
-    func playIntoVidHaptics() {
+    public func playIntoVidHaptics() {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         do {
             engine = try CHHapticEngine()

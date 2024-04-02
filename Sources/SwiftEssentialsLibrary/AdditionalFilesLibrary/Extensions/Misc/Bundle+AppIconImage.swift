@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension Bundle {
+public extension Bundle {
   
   var icon: UIImage? {
     

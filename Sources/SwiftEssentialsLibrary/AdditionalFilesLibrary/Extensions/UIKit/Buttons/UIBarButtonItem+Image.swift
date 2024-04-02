@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
 
     static func imageButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
         let button = UIButton(frame: .init(x: 0, y: 0, width: 30, height: 30))

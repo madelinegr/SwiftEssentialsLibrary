@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 //reference: https://stackoverflow.com/questions/17355280/how-to-add-a-border-just-on-the-top-side-of-a-uiview
-extension UIView {
+public extension UIView {
     func borders(for edges:[UIRectEdge], width:CGFloat = 0.3, color: UIColor = .lightGray) {
 
         if edges.contains(.all) {
@@ -59,7 +59,7 @@ extension UIView {
 }
 
 //the above code does not work in all scenarios
-extension UIView {
+public extension UIView {
     func addTopBorder(with color: UIColor?, andWidth borderWidth: CGFloat) {
         let border = UIView()
         border.backgroundColor = color

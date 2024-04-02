@@ -9,7 +9,7 @@ import Foundation
 
 //Examples: 4, 42, 423, 4.2k, 42k, 423k
 //This code is not meant to handle over a million emoji reactions on one single post... let's not get too popular
-func formattedVoteCount(_ number: Double) -> String {
+public func formattedVoteCount(_ number: Double) -> String {
     var formatted: String = ""
     if number < 1_000 {
         formatted = String(Int(number))
@@ -31,7 +31,7 @@ public func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(CGFloat.pi / 180)
 }
 
-extension Double {
+public extension Double {
     
     func formatToTwoDecimalPlaces() -> String {
         let formatter = NumberFormatter()

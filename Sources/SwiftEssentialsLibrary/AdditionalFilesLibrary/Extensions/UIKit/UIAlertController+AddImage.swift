@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
 
     func addImage(image: UIImage) {
         

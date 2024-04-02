@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-extension UIViewController {
+public extension UIViewController {
     
     func sendEmailTo(recipientEmail: String, subject: String, body: String, mailComposeDelegate: MFMailComposeViewControllerDelegate) {
         if MFMailComposeViewController.canSendMail() {

@@ -8,7 +8,7 @@
 import UIKit
 import CoreHaptics
 
-extension UITextView {
+public extension UITextView {
     func animate(newText: NSAttributedString, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
         let oldText = self.attributedText?.mutableCopy() as? NSMutableAttributedString ?? NSMutableAttributedString()
         if forward {
@@ -47,16 +47,16 @@ extension UITextView {
     }
 }
 
-class TypewriterUITextView: UITextView {
+public class TypewriterUITextView: UITextView {
     
-    var timer: Timer?
-    var characterIndex = 0
-    var mutableAttributedText = NSMutableAttributedString(string: "")
-    var extractedLinkAttributes: [(range: NSRange, link: String)] = []
-    var completion: (() -> Void)? = nil
-    var pauseDurationAtLinebreak: Double? = nil
+    public var timer: Timer?
+    public var characterIndex = 0
+    public var mutableAttributedText = NSMutableAttributedString(string: "")
+    public var extractedLinkAttributes: [(range: NSRange, link: String)] = []
+    public var completion: (() -> Void)? = nil
+    public var pauseDurationAtLinebreak: Double? = nil
     
-    init() {
+    public init() {
 //        if #available(iOS 16.0, *) {
 //            super.init(usingTextLayoutManager: false) //this is to preserve the link tapping behavior i created
 //        } else {
@@ -80,7 +80,7 @@ class TypewriterUITextView: UITextView {
         isSelectable = false
     }
     
-    func typewriter(newAttributedText: NSAttributedString, characterDelay: TimeInterval, delay: Double? = nil, pauseDurationAtLinebreak: Double? = nil, completion: (() -> Void)? = nil) {
+    public func typewriter(newAttributedText: NSAttributedString, characterDelay: TimeInterval, delay: Double? = nil, pauseDurationAtLinebreak: Double? = nil, completion: (() -> Void)? = nil) {
 
         timer?.invalidate() //Invalidate if we were already typing
         
@@ -110,7 +110,7 @@ class TypewriterUITextView: UITextView {
         }
     }
     
-    @objc func handleTimer() {
+    @objc public func handleTimer() {
         guard characterIndex < mutableAttributedText.length else {
             timer?.invalidate()
             for linkAttribute in extractedLinkAttributes {
@@ -145,21 +145,21 @@ class TypewriterUITextView: UITextView {
         characterIndex += 1
     }
 
-    func pauseTimer() {
+    public func pauseTimer() {
         timer?.fireDate = .distantFuture
     }
     
-    func resumeTimer() {
+    public func resumeTimer() {
         timer?.fireDate = Date()
     }
     
-    func stopTimer() {
+    public func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
     
     //Allow the link to be clicked, otherwise pass the touch through
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let glyphIndex = self.layoutManager.glyphIndex(for: point, in: self.textContainer)
 
         //Ensure the glyphIndex actually matches the point and isn't just the closest glyph to the point

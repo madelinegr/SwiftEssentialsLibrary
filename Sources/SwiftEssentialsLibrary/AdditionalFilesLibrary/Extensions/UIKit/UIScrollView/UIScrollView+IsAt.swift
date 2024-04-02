@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIScrollView {
+public extension UIScrollView {
 
 //    var isAtOrAboveTopAmount: Double {
 //        return contentOffset.y <= verticalOffsetForTop

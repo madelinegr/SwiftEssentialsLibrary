@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     func prerender() async -> UIImage {
         UIGraphicsBeginImageContext(size)

@@ -7,23 +7,23 @@
 
 import UIKit
 
-class TapUISlider: UISlider {
+public class TapUISlider: UISlider {
     
-    var trackRectWidth: CGFloat = 10
-    var thumbRectHorizontalOffset: CGFloat = 0
+    public var trackRectWidth: CGFloat = 10
+    public var thumbRectHorizontalOffset: CGFloat = 0
     
      private var thumbFrame: CGRect {
          return thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
      }
 
 
-    override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
+    public override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
         var newRect = super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
         newRect.origin.y = thumbRectHorizontalOffset
         return newRect
     }
     
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+    public override func trackRect(forBounds bounds: CGRect) -> CGRect {
        var newBounds = super.trackRect(forBounds: bounds)
        newBounds.size.height = trackRectWidth
        return newBounds
@@ -41,7 +41,7 @@ class TapUISlider: UISlider {
         }
     }
 
-    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         sliderTapped(touch: touch)
         return true
     }

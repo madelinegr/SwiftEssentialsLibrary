@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
 
     /// Returns a condensed string, with no extra whitespaces and no new lines.
     var condensed: String {

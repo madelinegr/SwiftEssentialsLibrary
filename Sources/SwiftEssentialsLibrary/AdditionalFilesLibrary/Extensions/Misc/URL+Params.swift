@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension URL {
+public extension URL {
     func valueOf(_ queryParamaterName: String) -> String? {
     guard let components = URLComponents(string: self.absoluteString) else { return nil }
     return components.queryItems?.first(where: { $0.name == queryParamaterName })?.value?.removingPercentEncoding?.removingPercentEncoding

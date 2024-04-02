@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     
     func shouldAllowNewline(in existingText: String, at index: Int) -> Bool {
 

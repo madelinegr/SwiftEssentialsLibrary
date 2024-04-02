@@ -7,12 +7,12 @@
 
 import Foundation
 
-func deleteAllLocalData() {
+public func deleteAllLocalData() {
     deleteAllDocumentDirectoryData()
     deleteAllUserDefaultData()
 }
 
-func deleteAllDocumentDirectoryData() {
+public func deleteAllDocumentDirectoryData() {
     let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     do {
         let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
@@ -25,6 +25,6 @@ func deleteAllDocumentDirectoryData() {
     } catch  { print(error) }
 }
 
-func deleteAllUserDefaultData() {
+public func deleteAllUserDefaultData() {
     UserDefaults.standard.setPersistentDomain([:], forName: Bundle.main.bundleIdentifier!)
 }

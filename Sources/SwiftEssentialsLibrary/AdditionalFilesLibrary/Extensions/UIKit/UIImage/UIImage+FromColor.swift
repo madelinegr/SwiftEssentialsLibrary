@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     ///corner radius not working yet
     class func imageFromColor(color: UIColor, cornerRadius: Double? = nil) -> UIImage {
@@ -78,7 +78,7 @@ extension UIImage {
 }
 
 //these extensions work strangely with width and height sometimes
-extension UIColor {
+public extension UIColor {
     func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         return UIGraphicsImageRenderer(size: size).image { rendererContext in
             self.setFill()

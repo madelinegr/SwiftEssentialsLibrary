@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     func constrainToSuperview() {
         guard let superview else { return }

@@ -13,7 +13,7 @@ import Combine
 //      isKeyboardPresented = value
 //    }
 
-extension View {
+public extension View {
   var keyboardPublisher: AnyPublisher<Bool, Never> {
     Publishers
       .Merge(
@@ -48,7 +48,7 @@ private struct KeyboardShowingEnvironmentKey: EnvironmentKey {
     static let defaultValue: Bool = false
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     var keyboardShowing: Bool {
         get { self[KeyboardShowingEnvironmentKey.self] }
         set { self[KeyboardShowingEnvironmentKey.self] = newValue }

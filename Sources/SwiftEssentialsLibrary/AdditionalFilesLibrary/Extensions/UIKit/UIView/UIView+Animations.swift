@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     func fadeIn(duration: TimeInterval = 0.3,
                 delay: TimeInterval = 0.0,
                 completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in }) {

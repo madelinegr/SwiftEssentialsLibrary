@@ -8,10 +8,10 @@
 import SwiftUI
 import Foundation
 
-struct FlippedUpsideDown: ViewModifier {
+public struct FlippedUpsideDown: ViewModifier {
     var animated: Bool
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .rotationEffect(.radians(.pi))
             .scaleEffect(x: -1, y: 1, anchor: .center)
@@ -21,7 +21,7 @@ struct FlippedUpsideDown: ViewModifier {
    }
 }
 
-extension View{
+public extension View{
     func flippedUpsideDown(animated: Bool) -> some View{
        self.modifier(FlippedUpsideDown(animated: animated))
    }

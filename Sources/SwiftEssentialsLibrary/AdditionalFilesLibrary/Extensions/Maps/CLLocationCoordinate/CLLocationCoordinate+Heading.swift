@@ -7,7 +7,7 @@
 
 import MapKit
 
-extension CLLocationCoordinate2D {
+public extension CLLocationCoordinate2D {
 
     func heading(to: CLLocationCoordinate2D) -> Double {
         let lat1 = self.latitude.degreesToRadians

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     static var areAnimationsInProgress: Bool {
         return UIView.inheritedAnimationDuration > 0

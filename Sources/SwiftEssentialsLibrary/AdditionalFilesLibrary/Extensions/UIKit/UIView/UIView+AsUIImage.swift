@@ -10,7 +10,7 @@ import QuartzCore
 //#import <QuartzCore/QuartzCore.h>
 
 
-extension UIView {
+public extension UIView {
     
     func asUIImage(frame: CGSize? = nil, bounds: CGSize? = nil) -> UIImage? {
         //creates new image context with same size as view

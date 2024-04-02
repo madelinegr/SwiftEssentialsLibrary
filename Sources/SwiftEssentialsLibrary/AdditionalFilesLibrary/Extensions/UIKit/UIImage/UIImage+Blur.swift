@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
         
     func blur() -> UIImage {
         let currentFilter = CIFilter(name: "CIGaussianBlur")

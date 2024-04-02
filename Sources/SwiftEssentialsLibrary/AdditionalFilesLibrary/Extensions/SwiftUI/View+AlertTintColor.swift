@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct AlertTintColor: ViewModifier {
+public struct AlertTintColor: ViewModifier {
     var color: Color
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .onAppear {
                 UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemBlue
@@ -18,7 +18,7 @@ struct AlertTintColor: ViewModifier {
    }
 }
 
-extension View {
+public extension View {
     func alertTintColor(_ color: Color) -> some View{
        self.modifier(AlertTintColor(color: color))
    }

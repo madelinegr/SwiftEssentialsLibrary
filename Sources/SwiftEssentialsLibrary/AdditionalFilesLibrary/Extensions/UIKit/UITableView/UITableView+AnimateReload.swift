@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     
     func reloadDataWithRowAnimation(_ animation: UITableView.RowAnimation) {
         // First, update the table view's data without animation

@@ -7,21 +7,21 @@
 
 import UIKit
 
-class UITableViewWithReloadCompletion: UITableViewWithButtons {
+open class UITableViewWithReloadCompletion: UITableViewWithButtons {
     
     private var reloadDataCompletionBlock: (() -> Void)? = nil
-    var persistentCompletionBlock: (() -> Void)?
+    public var persistentCompletionBlock: (() -> Void)?
     
-    init(style: UITableView.Style = .plain, persistentCompletionBlock: (() -> Void)? = nil) {
+    public init(style: UITableView.Style = .plain, persistentCompletionBlock: (() -> Void)? = nil) {
         super.init(frame: .null, style: style)
         self.persistentCompletionBlock = persistentCompletionBlock
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         if let reloadDataCompletionBlock {
@@ -32,7 +32,7 @@ class UITableViewWithReloadCompletion: UITableViewWithButtons {
         reloadDataCompletionBlock = nil
     }
 
-    func reloadDataWithSpecificCompletion(completion: @escaping () -> Void) {
+    public func reloadDataWithSpecificCompletion(completion: @escaping () -> Void) {
         reloadDataCompletionBlock = completion
         self.reloadData()
     }

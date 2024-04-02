@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct PreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
+public struct PreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
 
     let viewController: T
 
@@ -16,14 +16,14 @@ struct PreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
         viewController = viewControllerBuilder()
     }
     
-    func makeUIViewController(context: Context) -> T {
+    public func makeUIViewController(context: Context) -> T {
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: T, context: Context) {}
+    public func updateUIViewController(_ uiViewController: T, context: Context) {}
 }
 
-struct UIViewPreview<View: UIView>: UIViewRepresentable {
+public struct UIViewPreview<View: UIView>: UIViewRepresentable {
     let view: View
     
     init(_ builder: @escaping () -> View) {
@@ -31,11 +31,11 @@ struct UIViewPreview<View: UIView>: UIViewRepresentable {
     }
     
     // MARK: UIViewRepresentable
-    func makeUIView(context: Context) -> UIView {
+    public func makeUIView(context: Context) -> UIView {
         return view
     }
     
-    func updateUIView(_ view: UIView, context: Context) {
+    public func updateUIView(_ view: UIView, context: Context) {
         view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         view.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }

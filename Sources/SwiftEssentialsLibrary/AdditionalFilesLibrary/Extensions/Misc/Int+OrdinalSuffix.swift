@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     var ordinalSuffix: String {
         let ones = self % 10
         let tens = (self / 10) % 10

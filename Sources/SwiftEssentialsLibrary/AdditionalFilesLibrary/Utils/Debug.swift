@@ -7,6 +7,6 @@
 
 import Foundation
 
-func debug(file: String = #file, line: Int = #line, function: String = #function) -> String {
+public func debug(file: String = #file, line: Int = #line, function: String = #function) -> String {
     return "\(file):\(line) : \(function)"
 }

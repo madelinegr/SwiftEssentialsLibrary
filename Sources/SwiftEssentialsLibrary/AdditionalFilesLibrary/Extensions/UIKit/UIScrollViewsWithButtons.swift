@@ -8,9 +8,9 @@
 import UIKit
 
 //So that button presses do not prevent scrolling
-class UICollectionViewWithButtons: UICollectionView {
+open class UICollectionViewWithButtons: UICollectionView {
     
-    override func touchesShouldCancel(in view: UIView) -> Bool {
+    public override func touchesShouldCancel(in view: UIView) -> Bool {
         if view is UIButton {
             return true
         }
@@ -19,9 +19,9 @@ class UICollectionViewWithButtons: UICollectionView {
     
 }
 
-class UITableViewWithButtons: UITableView {
+open class UITableViewWithButtons: UITableView {
     
-    override func touchesShouldCancel(in view: UIView) -> Bool {
+    public override func touchesShouldCancel(in view: UIView) -> Bool {
         if view is UIButton {
             return true
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     
     func becomeProfilePicImageView(with profilePic: UIImage?) {
         image = profilePic

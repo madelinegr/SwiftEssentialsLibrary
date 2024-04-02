@@ -7,12 +7,12 @@
 
 import UIKit
 
-class CustomIntensityBlurView: UIVisualEffectView {
+public class CustomIntensityBlurView: UIVisualEffectView {
     
-    var animator = UIViewPropertyAnimator(duration: 1, curve: .linear)
-    var customIntensity: CGFloat
+    public var animator = UIViewPropertyAnimator(duration: 1, curve: .linear)
+    public var customIntensity: CGFloat
     
-    init(effect: UIVisualEffect?, intensity: CGFloat) {
+    public winit(effect: UIVisualEffect?, intensity: CGFloat) {
         self.customIntensity = intensity
         super.init(effect: effect)
     }
@@ -21,7 +21,7 @@ class CustomIntensityBlurView: UIVisualEffectView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func didMoveToSuperview() {
+    public override func didMoveToSuperview() {
         guard let superview = superview else { return }
         backgroundColor = .clear
         frame = superview.bounds //Or setup constraints instead

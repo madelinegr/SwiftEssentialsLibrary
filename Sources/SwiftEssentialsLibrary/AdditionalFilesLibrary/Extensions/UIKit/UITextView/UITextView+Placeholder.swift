@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     //Why does the function below for the commenttextfield need an adjusted frame origin, but not the function further down for the posts?
     func addAndReturnPlaceholderLabel(withText text: String) -> UILabel {
         let placeholderLabel = UILabel()

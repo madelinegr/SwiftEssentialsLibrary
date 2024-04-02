@@ -7,11 +7,11 @@
 
 import Foundation
 
-extension CodingUserInfoKey {
+public extension CodingUserInfoKey {
     static let keysToEncode = CodingUserInfoKey(rawValue: "keysToEncode")!
 }
 
-extension JSONEncoder {
+public extension JSONEncoder {
     func withEncodeSubset<CodingKeys>(keysToEncode: Set<CodingKeys>) -> JSONEncoder {
         userInfo[.keysToEncode] = Array(keysToEncode)
         return self

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     func toCGColor(in colorSpace: CGColorSpace) -> CGColor? {
         // Convert UIColor to RGBA components
         var red: CGFloat = 0

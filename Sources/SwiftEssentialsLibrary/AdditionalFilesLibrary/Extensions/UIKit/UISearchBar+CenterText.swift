@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UISearchBar {
+public extension UISearchBar {
     
     func centerText() {
         //get the sizes

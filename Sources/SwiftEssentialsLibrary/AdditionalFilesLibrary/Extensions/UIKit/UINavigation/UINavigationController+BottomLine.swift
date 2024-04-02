@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UINavigationController {
+public extension UINavigationController {
     func addCustomBottomLine(color:UIColor,height:Double) {
         //Hiding Default Line and Shadow
         navigationBar.setValue(true, forKey: "hidesShadow")

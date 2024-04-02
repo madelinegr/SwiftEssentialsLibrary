@@ -7,13 +7,13 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     func optionalItem(at index: Int) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
     }
 }
 
-extension Collection {
+public extension Collection {
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil

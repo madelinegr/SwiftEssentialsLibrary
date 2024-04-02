@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
   func addCharacterSpacing(kernValue: Double = 1.15) {
     guard let text = text, !text.isEmpty else { return }
@@ -18,7 +18,7 @@ extension UILabel {
     
 }
 
-extension String {
+public extension String {
     
     func addCharacterSpacing(kernValue: Double = 1.15) -> NSAttributedString {
         let string = NSMutableAttributedString(string: self)

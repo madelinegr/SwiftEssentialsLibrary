@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     ///Note: the view must already have its bounds properly defined when this is called (eg don't call this on the same cycle you're setting up constraints)
     func setBackgroundImage(_ image: UIImage) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     func addChild(_ child: UIViewController, in containerView: UIView) {
         guard containerView.isDescendant(of: view) else { return }
         addChild(child)
@@ -23,7 +23,7 @@ extension UIViewController {
     }
 }
 
-extension UIView {
+public extension UIView {
     func pinToSuperview(with insets: UIEdgeInsets = .zero, edges: UIRectEdge = .all) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false

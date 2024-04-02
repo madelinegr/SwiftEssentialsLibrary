@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UINavigationItem {
+public extension UINavigationItem {
     
     func addRegularButtonAsBarButtonItem(_ button: UIButton) {
         let accountBarItem = UIBarButtonItem(customView: button)

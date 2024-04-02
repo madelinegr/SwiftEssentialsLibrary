@@ -8,7 +8,7 @@
 import Foundation
 import ManagedSettings
 
-extension ManagedSettingsStore {
+public extension ManagedSettingsStore {
     
       var isShieldOpen: Bool {
           return shield.applicationCategories != nil || shield.applications != nil || shield.webDomainCategories != nil || shield.webDomains != nil

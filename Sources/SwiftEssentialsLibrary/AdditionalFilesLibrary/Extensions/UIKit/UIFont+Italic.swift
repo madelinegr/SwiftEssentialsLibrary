@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     var bold: UIFont {
         return with(.traitBold)
     }

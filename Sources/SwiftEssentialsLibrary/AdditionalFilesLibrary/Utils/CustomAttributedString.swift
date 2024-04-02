@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct CustomAttributedString {
-    static func createFor(text: String, fontName: String, size: CGFloat) -> NSMutableAttributedString {
+public struct CustomAttributedString {
+    public static func createFor(text: String, fontName: String, size: CGFloat) -> NSMutableAttributedString {
         let customAttributes = [NSAttributedString.Key.font: UIFont(name: fontName, size: size)!]
         return NSMutableAttributedString(string: text, attributes: customAttributes)
     }

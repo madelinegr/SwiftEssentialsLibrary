@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     var firstLastInitial: String {
         let nameComponents = self.split(separator: " ").map(String.init) // Split the name into components
         guard !nameComponents.isEmpty else { return "" } // Check if the name is empty

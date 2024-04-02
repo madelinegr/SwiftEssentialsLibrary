@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-class KeyboardObserver: ObservableObject {
+open class KeyboardObserver: ObservableObject {
     @Published var isShowing = false
     @Published var height: CGFloat = 0
     
-    func addObserver() {
+    public func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func removeObserver() {
+    public func removeObserver() {
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillShowNotification,object: nil)
         NotificationCenter.default.removeObserver(self,name: UIResponder.keyboardWillHideNotification,object: nil)
     }

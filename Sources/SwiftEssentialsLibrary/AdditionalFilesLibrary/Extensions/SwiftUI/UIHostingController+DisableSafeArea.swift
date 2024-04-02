@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension UIHostingController {
+public extension UIHostingController {
     convenience public init(rootView: Content, ignoreSafeArea: Bool) {
         self.init(rootView: rootView)
         

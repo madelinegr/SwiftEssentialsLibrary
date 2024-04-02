@@ -10,14 +10,14 @@ import SafariServices
 
 extension UIViewController: SFSafariViewControllerDelegate {
     
-    func openURL(_ url: URL) {
+    public func openURL(_ url: URL) {
         let webViewController = SFSafariViewController(url: url)
         webViewController.delegate = self
         webViewController.preferredControlTintColor = .systemBlue
         present(webViewController, animated: true)
     }
     
-    func openMailtoURL(_ url: URL) {
+    public func openMailtoURL(_ url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     

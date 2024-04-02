@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     var className: String {
         NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }

@@ -13,7 +13,7 @@ private struct SafeAreaInsetsKey: EnvironmentKey {
     }
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     
     var safeAreaInsets: EdgeInsets {
         self[SafeAreaInsetsKey.self]

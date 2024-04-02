@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     ///Includes self
     var allSubviews: [UIView] {

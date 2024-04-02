@@ -8,7 +8,7 @@
 import Foundation
 import DeviceActivity
 
-extension DeviceActivityName {
+public extension DeviceActivityName {
     static let experience = Self("experience")
     static let pause = Self("pause")
 }

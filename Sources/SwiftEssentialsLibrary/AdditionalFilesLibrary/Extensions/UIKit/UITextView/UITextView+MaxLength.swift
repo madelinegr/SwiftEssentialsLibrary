@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     
     // This function handles the shouldChangeTextIn delegate funciton of UITextView
 

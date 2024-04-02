@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     var isPresented: Bool {
         if let navigationController = self.navigationController {
             return navigationController.viewControllers.first != self || presentingViewController != nil

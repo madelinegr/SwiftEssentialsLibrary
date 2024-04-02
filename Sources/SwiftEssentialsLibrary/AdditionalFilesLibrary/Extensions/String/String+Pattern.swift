@@ -11,7 +11,7 @@ import Foundation
 //guard let text = textField.text else { return }
 //textField.text = text.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacmentCharacter: "#")
 
-extension String {
+public extension String {
     func applyPatternOnNumbers(pattern: String, replacementCharacter: Character) -> String {
         var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
         for index in 0 ..< pattern.count {

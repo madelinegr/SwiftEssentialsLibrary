@@ -7,15 +7,15 @@
 
 import UIKit
 
-enum GradientDirection {
+public enum GradientDirection {
     case topToBottom
     case leftToRight
 }
 
-class GradientView: UIView {
-    var gradientLayer: CAGradientLayer!
+public class GradientView: UIView {
+    public var gradientLayer: CAGradientLayer!
 
-    init(direction: GradientDirection, firstColor: UIColor, firstAlpha: CGFloat, secondColor: UIColor, secondAlpha: CGFloat) {
+    public init(direction: GradientDirection, firstColor: UIColor, firstAlpha: CGFloat, secondColor: UIColor, secondAlpha: CGFloat) {
         super.init(frame: .zero)
         self.createGradientLayer(direction: direction, firstColor: firstColor, firstAlpha: firstAlpha, secondColor: secondColor, secondAlpha: secondAlpha)
     }
@@ -25,7 +25,7 @@ class GradientView: UIView {
         self.createGradientLayer(direction: .topToBottom, firstColor: .black, firstAlpha: 1, secondColor: .white, secondAlpha: 1)
     }
     
-    func createGradientLayer(direction: GradientDirection, firstColor: UIColor, firstAlpha: CGFloat, secondColor: UIColor, secondAlpha: CGFloat) {
+    public func createGradientLayer(direction: GradientDirection, firstColor: UIColor, firstAlpha: CGFloat, secondColor: UIColor, secondAlpha: CGFloat) {
         gradientLayer = CAGradientLayer()
 
         gradientLayer.frame = self.bounds
@@ -43,7 +43,7 @@ class GradientView: UIView {
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer.frame = self.bounds
     }

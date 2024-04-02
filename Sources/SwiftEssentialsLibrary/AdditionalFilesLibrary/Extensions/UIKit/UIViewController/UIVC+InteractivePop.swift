@@ -9,13 +9,13 @@ import UIKit
 
 extension UIViewController: UIGestureRecognizerDelegate {
 
-  func disableInteractivePopGesture() {
+    public func disableInteractivePopGesture() {
     navigationItem.hidesBackButton = true
     navigationController?.interactivePopGestureRecognizer?.delegate = self
     navigationController?.interactivePopGestureRecognizer?.isEnabled = false
   }
 
-  func enableInteractivePopGesture() {
+    public func enableInteractivePopGesture() {
     navigationItem.hidesBackButton = false
     navigationController?.interactivePopGestureRecognizer?.delegate = self
     navigationController?.interactivePopGestureRecognizer?.isEnabled = true

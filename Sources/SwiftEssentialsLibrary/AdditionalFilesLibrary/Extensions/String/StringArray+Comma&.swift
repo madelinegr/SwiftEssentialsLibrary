@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array<String> {
+public extension Array<String> {
     
     func asCommaAndString() -> String {
         var string = ""

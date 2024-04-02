@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EventQueue {
+public class EventQueue {
     
     private var eventQueue: [(()->Void)] = []
     private let timeInterval: TimeInterval = 1
@@ -15,7 +15,7 @@ class EventQueue {
     
     private let synchronizationQueue = DispatchQueue(label: "com.PICTOCHAT.EventQueue.synchronizationQueue")
 
-    func queueUpEvent(_ event: @escaping ()->Void) {
+    public func queueUpEvent(_ event: @escaping ()->Void) {
         synchronizationQueue.async { [weak self] in
             self?.appendEvent(event)
         }

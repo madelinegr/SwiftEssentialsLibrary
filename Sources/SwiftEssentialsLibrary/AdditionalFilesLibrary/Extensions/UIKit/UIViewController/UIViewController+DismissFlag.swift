@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     var isAboutToClose: Bool {
         return self.isBeingDismissed ||
                self.isMovingFromParent ||

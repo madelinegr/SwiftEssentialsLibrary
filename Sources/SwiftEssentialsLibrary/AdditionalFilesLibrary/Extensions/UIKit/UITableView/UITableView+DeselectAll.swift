@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     func deselectAllRows(inSection section: Int, animated: Bool) {
         guard let selectedRows = indexPathsForSelectedRows else { return }
         for indexPath in selectedRows {

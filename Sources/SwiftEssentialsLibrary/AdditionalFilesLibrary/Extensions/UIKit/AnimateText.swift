@@ -7,7 +7,7 @@
 
 import UIKit
 
-func animate(textView: UITextView, newText: NSAttributedString, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
+public func animate(textView: UITextView, newText: NSAttributedString, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
     let oldText = textView.attributedText?.mutableCopy() as? NSMutableAttributedString ?? NSMutableAttributedString()
     if forward {
         let allText = oldText.mutableCopy() as! NSMutableAttributedString
@@ -46,7 +46,7 @@ func animate(textView: UITextView, newText: NSAttributedString, characterDelay: 
     }
 }
 
-func animate(label: UILabel, newText: NSAttributedString, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
+public func animate(label: UILabel, newText: NSAttributedString, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
     if forward {
         let oldText = label.attributedText ?? NSAttributedString(string: "")
         let allText = NSMutableAttributedString()
@@ -85,7 +85,7 @@ func animate(label: UILabel, newText: NSAttributedString, characterDelay: TimeIn
     }
 }
 
-extension NSAttributedString {
+public extension NSAttributedString {
     func adding(_ other: NSAttributedString) -> NSAttributedString {
         let result = NSMutableAttributedString()
         result.append(self)
@@ -101,7 +101,7 @@ extension NSAttributedString {
     }
 }
 
-func animate(label: UILabel, newText: String, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
+public func animate(label: UILabel, newText: String, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
     if forward {
         let oldText = label.text ?? ""
         let allText = oldText + newText
@@ -138,7 +138,7 @@ func animate(label: UILabel, newText: String, characterDelay: TimeInterval, forw
 }
 
 
-func animate(button: UIButton, newText: String, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
+public func animate(button: UIButton, newText: String, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
     if forward {
         var oldText = button.title(for: .normal) ?? ""
         var characterIndex = 0
@@ -180,7 +180,7 @@ func animate(button: UIButton, newText: String, characterDelay: TimeInterval, fo
 
 
 
-extension UIButton {
+public extension UIButton {
     func animateImageIn(duration: TimeInterval) {
         guard let imageView = self.imageView else { return }
 

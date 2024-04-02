@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     func animate(newText: String, characterDelay: TimeInterval, forward: Bool, completion: @escaping () -> Void) {
         if forward {
             var oldText = self.title(for: .normal) ?? ""

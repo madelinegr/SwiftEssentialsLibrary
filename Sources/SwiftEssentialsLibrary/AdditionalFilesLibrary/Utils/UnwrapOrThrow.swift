@@ -14,7 +14,7 @@ struct NilError: Error {
     let function: String
 }
 
-extension Optional {
+public extension Optional {
     func unwrapOrThrow(file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) throws -> Wrapped {
         return try unwrapOrThrow(NilError(file: file, line: line, column: column, function: function))
     }

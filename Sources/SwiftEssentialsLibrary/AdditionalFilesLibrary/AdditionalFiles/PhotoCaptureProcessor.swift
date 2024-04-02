@@ -8,7 +8,7 @@
 import AVFoundation
 import Photos
 
-class PhotoCaptureProcessor: NSObject {
+open class PhotoCaptureProcessor: NSObject {
     private(set) var requestedPhotoSettings: AVCapturePhotoSettings
     
     private let willCapturePhotoAnimation: () -> Void
@@ -48,13 +48,13 @@ class PhotoCaptureProcessor: NSObject {
 extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
     
     /// - Tag: WillBeginCapture
-    func photoOutput(_ output: AVCapturePhotoOutput, willBeginCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, willBeginCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
         print("time range", resolvedSettings.photoProcessingTimeRange)
         maxPhotoProcessingTime = resolvedSettings.photoProcessingTimeRange.start + resolvedSettings.photoProcessingTimeRange.duration
     }
     
     /// - Tag: WillCapturePhoto
-    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
         
         willCapturePhotoAnimation()
     
@@ -75,7 +75,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
     }
     
     /// - Tag: DidFinishProcessingPhoto
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         photoProcessingHandler(false)
         
         if let error = error {
@@ -91,7 +91,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
 
     
     /// - Tag: DidFinishCapture
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
         guard error == nil, let photo = photo else {
             print("Error didFinishCapture: \(error!)")
             didFinish()
@@ -102,7 +102,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
         //upload photo to remote server
     }
     
-    func save(photo: AVCapturePhoto) {
+    public func save(photo: AVCapturePhoto) {
         guard PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized || PHPhotoLibrary.authorizationStatus(for: .readWrite) == .limited else {
             print("User never granted access to save photos")
             didFinish()

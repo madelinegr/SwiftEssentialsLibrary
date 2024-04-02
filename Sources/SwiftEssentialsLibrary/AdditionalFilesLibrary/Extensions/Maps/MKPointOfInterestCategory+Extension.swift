@@ -9,7 +9,7 @@ A utility file to provide icons for point-of-interest categories.
 import Foundation
 import MapKit
 
-extension MKPointOfInterestCategory {
+public extension MKPointOfInterestCategory {
     
     static let travelPointsOfInterest: [MKPointOfInterestCategory] = [.bakery, .brewery, .cafe, .restaurant, .winery, .hotel]
     static let defaultSymbolUIImage = UIImage(systemName: "mappin.and.ellipse")!

@@ -8,7 +8,7 @@
 import UIKit
 
 //https://stackoverflow.com/questions/42755590/how-to-display-only-bottom-border-for-selected-item-in-uisegmentedcontrol
-extension UISegmentedControl {
+public extension UISegmentedControl {
 
     func setupSegment() {
         self.fixBackgroundSegmentControl()

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     //This function requires the UIView to already have the proper frame (not a .zero initialized frame)
    func roundCorners(corners: UIRectCorner, radius: CGFloat) {

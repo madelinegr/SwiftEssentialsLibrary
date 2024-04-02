@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Decodable {
+public extension Decodable {
     
     static func fromJson(_ json: Any?) throws -> Self {
         guard let json = json as? [String:Any] else { 

@@ -7,14 +7,14 @@
 
 import UIKit
 
-class InsetLabel: UILabel {
+public class InsetLabel: UILabel {
     
     @IBInspectable var topInset: CGFloat = 0.0
     @IBInspectable var leftInset: CGFloat = 0.0
     @IBInspectable var bottomInset: CGFloat = 0.0
     @IBInspectable var rightInset: CGFloat = 0.0
 
-    var insets: UIEdgeInsets {
+    public var insets: UIEdgeInsets {
         get {
             return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         }
@@ -26,11 +26,11 @@ class InsetLabel: UILabel {
         }
     }
 
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: insets))
     }
 
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
         var adjSize = super.sizeThatFits(size)
         adjSize.width += leftInset + rightInset
         adjSize.height += topInset + bottomInset
@@ -38,7 +38,7 @@ class InsetLabel: UILabel {
         return adjSize
     }
 
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.width += leftInset + rightInset
         contentSize.height += topInset + bottomInset

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     func createTopLoadingView() -> UIView {
         let topLoadingView = UIView()

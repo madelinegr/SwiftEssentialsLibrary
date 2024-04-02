@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     func withoutNullEntries() -> Dictionary {
         var noNullDict = self

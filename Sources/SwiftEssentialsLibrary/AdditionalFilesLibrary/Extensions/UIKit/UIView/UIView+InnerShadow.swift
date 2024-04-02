@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     ///I believe this should really be called everytime on layoutSubviews() if the view moves around for it to always be positioned properly
     func addInnerShadow(opacity: Float, radius: Double, color: UIColor, width: Double, height: Double) {

@@ -14,7 +14,7 @@ import Foundation
 //print(str.substring(to: 5))           // Hello
 //print(str.substring(with: 7..<11))    // play
 
-extension String {
+public extension String {
     func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Data {
+public extension Data {
     
     func toJson() throws -> [String: Any] {
         return try (JSONSerialization.jsonObject(with: self, options: []) as? [String: Any]).unwrapOrThrow()

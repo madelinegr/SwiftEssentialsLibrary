@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     func capitalizeFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }

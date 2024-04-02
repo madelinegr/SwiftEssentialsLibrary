@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Validate {
+public struct Validate {
     
     //TODO: display notice during auth that they can only use these characters
     static func validateUsername(_ username: String) -> Bool {

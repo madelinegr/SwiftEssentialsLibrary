@@ -8,7 +8,7 @@
 import Foundation
 import CoreImage
 
-extension CGImage {
+public extension CGImage {
     var png: Data? {
         guard let mutableData = CFDataCreateMutable(nil, 0),
             let destination = CGImageDestinationCreateWithData(mutableData, "public.png" as CFString, 1, nil) else { return nil }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     
     static let LoadingIndicatorTag = 808404
     static let CheckMarkTag = 800904

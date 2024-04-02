@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     var rootSuperView: UIView {
         var view = self
         while let s = view.superview {

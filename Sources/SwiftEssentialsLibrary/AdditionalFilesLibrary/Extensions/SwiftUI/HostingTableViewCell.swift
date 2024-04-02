@@ -8,7 +8,6 @@
 import UIKit
 import SwiftUI
 
-
 final class HostingTableViewCell<Content: View>: UITableViewCell {
     private let hostingController = UIHostingController<Content?>(rootView: nil)
     

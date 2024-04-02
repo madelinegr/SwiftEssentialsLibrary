@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     
     func shouldPreventDoubleSpaceTurnsIntoPeriodShortcut(_ range: NSRange, _ text: String) -> Bool {
         if range.location > 0 && text.count > 0

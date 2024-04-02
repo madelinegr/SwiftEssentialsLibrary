@@ -7,7 +7,7 @@
 
 import Foundation
 
-func getIPAddress() -> String {
+public func getIPAddress() -> String {
     var address: String?
     var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
     if getifaddrs(&ifaddr) == 0 {

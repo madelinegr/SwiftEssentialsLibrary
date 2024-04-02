@@ -8,7 +8,7 @@
 import Foundation
 import FamilyControls
 
-extension FamilyActivitySelection {
+public extension FamilyActivitySelection {
     
     var blockedString: String {
         var string = ""

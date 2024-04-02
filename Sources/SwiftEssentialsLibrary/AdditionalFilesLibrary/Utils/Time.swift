@@ -7,24 +7,24 @@
 
 import Foundation
 
-func currentTimeMillis() -> Double {
+public func currentTimeMillis() -> Double {
     return Date().timeIntervalSince1970
 }
 
-struct ElapsedTime {
+public struct ElapsedTime {
     let seconds, minutes, hours, days, weeks, months, years: Int
 }
 
-enum FilterTimescale {
+public enum FilterTimescale {
     case week, month
 }
 
-extension Date {
+public extension Date {
     func getElapsedTime(since date: Date) -> ElapsedTime {
         return self.timeIntervalSince1970.getElapsedTime(since: date.timeIntervalSince1970)
     }
 }
-extension TimeInterval{
+public extension TimeInterval{
     func getElapsedTime(since timestamp: TimeInterval) -> ElapsedTime {
         let time = NSInteger(self)
         let elapsedTime = time - NSInteger(timestamp)
@@ -41,7 +41,7 @@ extension TimeInterval{
     }
 }
 
-extension Date {
+public extension Date {
 
     var daySuffix: String {
         let dayOfMonth = Calendar.current.component(.day, from: self)
@@ -58,7 +58,7 @@ extension Date {
     }
 }
 
-func getShortFormattedTimeString(timestamp: Double) -> String {
+public func getShortFormattedTimeString(timestamp: Double) -> String {
     let elapsedTimeSincePost = NSDate().timeIntervalSince1970.getElapsedTime(since: timestamp)
     
     //if the post happened today
@@ -87,7 +87,7 @@ func getShortFormattedTimeString(timestamp: Double) -> String {
     return String(elapsedTimeSincePost.years) + "y"
 }
 
-func getFormattedTimeStringForPost(timestamp: Double) -> String {
+public func getFormattedTimeStringForPost(timestamp: Double) -> String {
     let elapsedTimeSincePost = NSDate().timeIntervalSince1970.getElapsedTime(since: timestamp)
     //if seconds ago
     if elapsedTimeSincePost.hours == 0 && elapsedTimeSincePost.minutes == 0 {
@@ -143,7 +143,7 @@ func getFormattedTimeStringForPost(timestamp: Double) -> String {
     return getDateNumbers(currentTimeMillis: timestamp)
 }
 
-func getFormattedTimeStringForChat(timestamp: Double) -> String {
+public func getFormattedTimeStringForChat(timestamp: Double) -> String {
     let elapsedTimeSincePost = NSDate().timeIntervalSince1970.getElapsedTime(since: timestamp)
     
     if elapsedTimeSincePost.days < 3 {
@@ -170,7 +170,7 @@ func getFormattedTimeStringForChat(timestamp: Double) -> String {
     return getDateNumbers(currentTimeMillis: timestamp) //TODO: add the time, too
 }
 
-func getFormattedTimeStringForConvo(timestamp: Double) -> String {
+public func getFormattedTimeStringForConvo(timestamp: Double) -> String {
     let elapsedTimeSincePost = NSDate().timeIntervalSince1970.getElapsedTime(since: timestamp)
     
     if elapsedTimeSincePost.hours == 0 && elapsedTimeSincePost.minutes == 0 {
@@ -200,7 +200,7 @@ func getFormattedTimeStringForConvo(timestamp: Double) -> String {
     return getDateNumbers(currentTimeMillis: timestamp)
 }
 
-func getDateNumbers(currentTimeMillis: Double) -> String {
+public func getDateNumbers(currentTimeMillis: Double) -> String {
     let myTimeInterval = TimeInterval(currentTimeMillis)
     let thedate = Date(timeIntervalSince1970: myTimeInterval)
     let dateFormatter = DateFormatter()
@@ -210,7 +210,7 @@ func getDateNumbers(currentTimeMillis: Double) -> String {
     return dateFormatter.string(from: thedate)
 }
 
-func daySuffix(from date: Date) -> String {
+public func daySuffix(from date: Date) -> String {
     let calendar = Calendar.current
     let dayOfMonth = calendar.component(.day, from: date)
     switch dayOfMonth {
@@ -221,7 +221,7 @@ func daySuffix(from date: Date) -> String {
     }
 }
 
-func getDateOnly(currentTimeMillis: Double) -> String {
+public func getDateOnly(currentTimeMillis: Double) -> String {
     let myTimeInterval = TimeInterval(currentTimeMillis)
     let thedate = Date(timeIntervalSince1970: myTimeInterval)
     let dateFormatter = DateFormatter()
@@ -231,7 +231,7 @@ func getDateOnly(currentTimeMillis: Double) -> String {
     return dateFormatter.string(from: thedate)
 }
 
-func getDateAndTimeForNewPost(selectedDate: Date) -> (String, String) {
+public func getDateAndTimeForNewPost(selectedDate: Date) -> (String, String) {
     let elapsedTimeSincePost = NSDate().timeIntervalSince1970.getElapsedTime(since: selectedDate.timeIntervalSince1970)
     
     let timeFormatter = DateFormatter()
@@ -273,7 +273,7 @@ func getDateAndTimeForNewPost(selectedDate: Date) -> (String, String) {
 //Apr 4 at 4:59pm
 
 //date formatting reference: https://stackoverflow.com/questions/35700281/date-format-in-swift
-func getFormattedDate(currentTimeMillis: Double) -> String {
+public func getFormattedDate(currentTimeMillis: Double) -> String {
     let myTimeInterval = TimeInterval(currentTimeMillis)
     let thedate = Date(timeIntervalSince1970: myTimeInterval)
     let dateFormatter = DateFormatter()
@@ -283,7 +283,7 @@ func getFormattedDate(currentTimeMillis: Double) -> String {
     return dateFormatter.string(from: thedate).replacingOccurrences(of: "AM", with: "am").replacingOccurrences(of: "PM", with: "pm")
 }
 
-func getRecentFormattedDate(currentTimeMillis: Double) -> String {
+public func getRecentFormattedDate(currentTimeMillis: Double) -> String {
     let myTimeInterval = TimeInterval(currentTimeMillis)
     let thedate = Date(timeIntervalSince1970: myTimeInterval)
     let dateFormatter = DateFormatter()
@@ -293,7 +293,7 @@ func getRecentFormattedDate(currentTimeMillis: Double) -> String {
     return dateFormatter.string(from: thedate).replacingOccurrences(of: "AM", with: "am").replacingOccurrences(of: "PM", with: "pm")
 }
 
-func getDayOfWeek(currentTimeMillis: Double) -> String {
+public func getDayOfWeek(currentTimeMillis: Double) -> String {
     let myTimeInterval = TimeInterval(currentTimeMillis)
     let thedate = Date(timeIntervalSince1970: myTimeInterval)
     let dateFormatter = DateFormatter()
@@ -305,7 +305,7 @@ func getDayOfWeek(currentTimeMillis: Double) -> String {
 
 //MARK: - UISlider
 
-func getDateFromSlider(indexFromZeroToOne index: Float, timescale: FilterTimescale, lowercase: Bool) -> String {
+public func getDateFromSlider(indexFromZeroToOne index: Float, timescale: FilterTimescale, lowercase: Bool) -> String {
     var dateString: String
     if timescale == .week {
         if index >= 1 - 1.0/7 {
@@ -350,7 +350,7 @@ func getDateFromSlider(indexFromZeroToOne index: Float, timescale: FilterTimesca
 //        dateString += " evening"
 //    }
 
-extension Date {
+public extension Date {
     static var yesterday: Date { return Date().dayBefore }
     static var lastWeek: Date { return Date().weekBefore }
     static var tomorrow:  Date { return Date().dayAfter }
@@ -374,7 +374,7 @@ extension Date {
     }
 }
 
-extension Date {
+public extension Date {
     
     func isMoreRecentThan(_ otherDate: Date) -> Bool {
         return self.timeIntervalSince1970 > otherDate.timeIntervalSince1970
@@ -386,7 +386,7 @@ extension Date {
     
 }
 
-extension Date {
+public extension Date {
     var sevenDaysOut: Date {
         Calendar.autoupdatingCurrent.date(byAdding: .day, value: 7, to: self) ?? self
     }

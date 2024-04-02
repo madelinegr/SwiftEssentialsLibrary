@@ -8,16 +8,16 @@
 import Network
 import Foundation
 
-class Reachability {
+public class Reachability {
 
-    static var shared = Reachability()
+    static public var shared = Reachability()
     lazy private var monitor = NWPathMonitor()
 
-    var isConnected: Bool {
+    public var isConnected: Bool {
         return monitor.currentPath.status == .satisfied
     }
 
-    func startNetworkReachabilityObserver() {
+    public func startNetworkReachabilityObserver() {
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 NotificationCenter.default.post(name: .init("connectedtointernet"), object: nil)

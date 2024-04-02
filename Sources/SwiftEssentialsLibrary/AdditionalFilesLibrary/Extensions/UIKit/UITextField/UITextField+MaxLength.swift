@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextField {
+public extension UITextField {
     
     // This function handles the shouldChangeCharactersIn delegate funciton of UITextField
     // Reference: https://stackoverflow.com/questions/25223407/max-length-uitextfield

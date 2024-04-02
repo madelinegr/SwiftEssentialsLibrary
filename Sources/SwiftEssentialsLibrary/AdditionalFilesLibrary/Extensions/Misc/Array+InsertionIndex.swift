@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension RandomAccessCollection where Element : Comparable {
+public extension RandomAccessCollection where Element : Comparable {
     func insertionIndex(of value: Element) -> Index {
         var slice : SubSequence = self[...]
 
@@ -23,7 +23,7 @@ extension RandomAccessCollection where Element : Comparable {
     }
 }
 
-extension RandomAccessCollection { // the predicate version is not required to conform to Comparable
+public extension RandomAccessCollection { // the predicate version is not required to conform to Comparable
     func insertionIndex(for predicate: (Element) -> Bool) -> Index {
         var slice : SubSequence = self[...]
 
