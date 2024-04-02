@@ -11,10 +11,10 @@ import CoreHaptics
 
 public class Haptics: NSObject {
     
-    static let introVid = Haptics()
-    static let outcome = Haptics()
-    static let twodrop = Haptics()
-    static let camera = Haptics()
+    public static let introVid = Haptics()
+    public static let outcome = Haptics()
+    public static let twodrop = Haptics()
+    public static let camera = Haptics()
 
     //MARK: - Standard
     

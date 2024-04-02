@@ -12,9 +12,9 @@ import Combine
 @MainActor
 final class KeyboardResponder: ObservableObject {
     private var notificationCenter: NotificationCenter
-    @Published private(set) var currentHeight: CGFloat = 0
+    @Published public private(set) var currentHeight: CGFloat = 0
 
-    init(center: NotificationCenter = .default) {
+    public init(center: NotificationCenter = .default) {
         notificationCenter = center
         //was getting "work performed off main thread" with these
         notificationCenter.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -9,9 +9,9 @@ import AVFoundation
 import UIKit
 import Combine
 
-class PlayerView: UIView {
+open class PlayerView: UIView {
 
-    var player: AVPlayer? {
+    public var player: AVPlayer? {
         get {
             return playerLayer.player
         }
@@ -20,17 +20,17 @@ class PlayerView: UIView {
         }
     }
 
-    var playerLayer: AVPlayerLayer {
+    public var playerLayer: AVPlayerLayer {
         return layer as! AVPlayerLayer
     }
 
     // Override UIView property
-    override static var layerClass: AnyClass {
+    public override static var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
 }
 
-protocol VideoPlayerDelegate {
+public protocol VideoPlayerDelegate {
     func downloadedProgress(progress:Double)
     func readyToPlay()
     func didChangeTime(progress:Double, seconds:Double)
@@ -40,24 +40,24 @@ protocol VideoPlayerDelegate {
     func didPausePlaying()
 }
 
-class VideoPlayer : NSObject {
+open class VideoPlayer : NSObject {
 
-    private var assetPlayer:AVPlayer?
-    private var playerItem:AVPlayerItem?
-    private var urlAsset:AVURLAsset?
-    private var videoOutput:AVPlayerItemVideoOutput?
+    open var assetPlayer:AVPlayer?
+    open var playerItem:AVPlayerItem?
+    open var urlAsset:AVURLAsset?
+    open var videoOutput:AVPlayerItemVideoOutput?
 
-    private var assetDuration:Double = 0
-    private var playerView:PlayerView?
+    open var assetDuration:Double = 0
+    open var playerView:PlayerView?
 
-    private var autoRepeatPlay:Bool = true
-    private var autoPlay:Bool = true
+    open var autoRepeatPlay:Bool = true
+    open var autoPlay:Bool = true
 
-    var delegate:VideoPlayerDelegate?
+    open var delegate:VideoPlayerDelegate?
     
-    let videoContext: UnsafeMutableRawPointer? = nil
+    public let videoContext: UnsafeMutableRawPointer? = nil
 
-    var playerRate:Float = 1 {
+    open var playerRate:Float = 1 {
         didSet {
             if let player = assetPlayer {
                 player.rate = playerRate > 0 ? playerRate : 0.0
@@ -65,7 +65,7 @@ class VideoPlayer : NSObject {
         }
     }
 
-    var volume:Float = 1.0 {
+    open var volume:Float = 1.0 {
         didSet {
             if let player = assetPlayer {
                 player.volume = volume > 0 ? volume : 0.0
@@ -107,7 +107,7 @@ class VideoPlayer : NSObject {
 
     // MARK: - Public
 
-    func isPlaying() -> Bool {
+    open func isPlaying() -> Bool {
         if let player = assetPlayer {
             return player.rate > 0
         } else {
@@ -115,7 +115,7 @@ class VideoPlayer : NSObject {
         }
     }
 
-    func seekToPosition(seconds:Float64) {
+    open func seekToPosition(seconds:Float64) {
         if let player = assetPlayer {
             pause()
             if let timeScale = player.currentItem?.asset.duration.timescale {
@@ -126,13 +126,13 @@ class VideoPlayer : NSObject {
         }
     }
 
-    func pause() {
+    open func pause() {
         if let player = assetPlayer {
             player.pause()
         }
     }
 
-    func play() {
+    open func play() {
         if let player = assetPlayer {
             if (player.currentItem?.status == .readyToPlay) {
                 player.play()
@@ -141,7 +141,7 @@ class VideoPlayer : NSObject {
         }
     }
 
-    func cleanUp() {
+    open func cleanUp() {
         if let item = playerItem {
             item.removeObserver(self, forKeyPath: "status")
             item.removeObserver(self, forKeyPath: "loadedTimeRanges")
@@ -154,11 +154,11 @@ class VideoPlayer : NSObject {
 
     // MARK: - Private
     
-    @objc private func audioRouteChanged(note: Notification) {
+    @objc open func audioRouteChanged(note: Notification) {
         assetPlayer?.play()
     }
 
-    private func prepareToPlay() {
+    open  func prepareToPlay() {
         let keys = ["tracks"]
         if let asset = urlAsset {
             asset.loadValuesAsynchronously(forKeys: keys, completionHandler: {
@@ -169,8 +169,8 @@ class VideoPlayer : NSObject {
         }
     }
     
-    var isPlayingCancellable: AnyCancellable?
-    private func startLoading(){
+    open var isPlayingCancellable: AnyCancellable?
+    open  func startLoading(){
         var error:NSError?
         guard let asset = urlAsset else {return}
         let status:AVKeyValueStatus = asset.statusOfValue(forKey: "tracks", error: &error)
@@ -207,7 +207,7 @@ class VideoPlayer : NSObject {
         }
     }
 
-    private func addAssetPlayerObservers() {
+    open func addAssetPlayerObservers() {
 //        let timeInterval = CMTimeMakeWithSeconds(0.1, preferredTimescale: 10) //every 0.1 seconds
         let timeInterval = CMTimeMakeWithSeconds(0.01, preferredTimescale: 600) //every 0.01 seconds. this serves as a "videoDidStart", since that keypath is not workign properly for me
 //        let timeInterval = CMTimeMake(value: 1, timescale: 1) //every 1 second
@@ -223,7 +223,7 @@ class VideoPlayer : NSObject {
     }
     //last resort... this method: https://stackoverflow.com/questions/7893416/avplayer-is-not-readyfordisplay-does-not-show
 
-    private func playerDidChangeTime(time:CMTime) {
+    open func playerDidChangeTime(time:CMTime) {
         if let player = assetPlayer {
             let timeNow = CMTimeGetSeconds(player.currentTime())
             let progress = timeNow / assetDuration
@@ -297,7 +297,7 @@ class VideoPlayer : NSObject {
     }
 
     // MARK: - Observations
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let assetPlayer, let keyPath else { return }
         if keyPath == "status" {
             playerDidChangeStatus(status: assetPlayer.status)

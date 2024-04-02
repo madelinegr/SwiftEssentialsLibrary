@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     func mapKeys<T: Hashable>(_ transform: (Key) throws -> T) rethrows -> Dictionary<T, Value> {
         var newDictionary = Dictionary<T, Value>()
 

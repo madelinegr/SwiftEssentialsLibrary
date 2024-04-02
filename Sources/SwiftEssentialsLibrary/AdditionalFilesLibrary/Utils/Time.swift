@@ -12,7 +12,7 @@ public func currentTimeMillis() -> Double {
 }
 
 public struct ElapsedTime {
-    let seconds, minutes, hours, days, weeks, months, years: Int
+    public let seconds, minutes, hours, days, weeks, months, years: Int
 }
 
 public enum FilterTimescale {

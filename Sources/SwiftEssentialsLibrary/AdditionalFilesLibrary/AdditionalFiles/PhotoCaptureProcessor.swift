@@ -9,7 +9,7 @@ import AVFoundation
 import Photos
 
 open class PhotoCaptureProcessor: NSObject {
-    private(set) var requestedPhotoSettings: AVCapturePhotoSettings
+    public var requestedPhotoSettings: AVCapturePhotoSettings
     
     private let willCapturePhotoAnimation: () -> Void
         
@@ -28,7 +28,7 @@ open class PhotoCaptureProcessor: NSObject {
     // Save the location of captured photos
     var location: CLLocation?
 
-    init(with requestedPhotoSettings: AVCapturePhotoSettings,
+    public init(with requestedPhotoSettings: AVCapturePhotoSettings,
          willCapturePhotoAnimation: @escaping () -> Void,
          livePhotoCaptureHandler: @escaping (Bool) -> Void,
          completionHandler: @escaping (PhotoCaptureProcessor) -> Void,
