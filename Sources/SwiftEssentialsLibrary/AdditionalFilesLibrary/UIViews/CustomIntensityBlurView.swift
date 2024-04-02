@@ -12,7 +12,7 @@ public class CustomIntensityBlurView: UIVisualEffectView {
     public var animator = UIViewPropertyAnimator(duration: 1, curve: .linear)
     public var customIntensity: CGFloat
     
-    public winit(effect: UIVisualEffect?, intensity: CGFloat) {
+    public init(effect: UIVisualEffect?, intensity: CGFloat) {
         self.customIntensity = intensity
         super.init(effect: effect)
     }

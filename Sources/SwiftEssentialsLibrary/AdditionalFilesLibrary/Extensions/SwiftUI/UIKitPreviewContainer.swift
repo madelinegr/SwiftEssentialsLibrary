@@ -10,9 +10,9 @@ import UIKit
 
 public struct PreviewContainer<T: UIViewController>: UIViewControllerRepresentable {
 
-    let viewController: T
+    public let viewController: T
 
-    init(_ viewControllerBuilder: @escaping () -> T) {
+    public init(_ viewControllerBuilder: @escaping () -> T) {
         viewController = viewControllerBuilder()
     }
     
@@ -24,9 +24,9 @@ public struct PreviewContainer<T: UIViewController>: UIViewControllerRepresentab
 }
 
 public struct UIViewPreview<View: UIView>: UIViewRepresentable {
-    let view: View
+    public let view: View
     
-    init(_ builder: @escaping () -> View) {
+    public init(_ builder: @escaping () -> View) {
         view = builder()
     }
     
