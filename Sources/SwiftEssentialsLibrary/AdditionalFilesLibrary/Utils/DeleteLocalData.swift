@@ -26,5 +26,9 @@ public func deleteAllDocumentDirectoryData() {
 }
 
 public func deleteAllUserDefaultData() {
-    UserDefaults.standard.setPersistentDomain([:], forName: Bundle.main.bundleIdentifier!)
+    Bundle.allBundles.forEach { bundle in
+        if let identifier = bundle.bundleIdentifier {
+            UserDefaults.standard.setPersistentDomain([:], forName: identifier)
+        }
+    }
 }
