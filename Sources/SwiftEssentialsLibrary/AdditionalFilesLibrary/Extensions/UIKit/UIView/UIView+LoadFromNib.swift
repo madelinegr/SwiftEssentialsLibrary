@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 public extension UIView {
-    func loadViewFromNib(nibName: String) -> UIView? {
-        let bundle = Bundle(for: type(of: self))
+    func loadViewFromNib(nibName: String, bundle: Bundle? = nil) -> UIView? {
+        let bundle = bundle ?? Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self).first as? UIView
     }

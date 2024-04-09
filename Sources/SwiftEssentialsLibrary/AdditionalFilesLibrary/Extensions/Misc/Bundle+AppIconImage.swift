@@ -16,7 +16,7 @@ public extension Bundle {
        let files = primary["CFBundleIconFiles"] as? [String],
        let icon = files.last
     {
-      return UIImage(named: icon)
+        return UIImage(named: icon, in: .main, with: nil)
     }
     
     return nil

@@ -10,9 +10,9 @@ import UIKit
 public extension UITableView {
 
     @discardableResult
-    func sRegister<T: UITableView>(_ cellClass: AnyClass) -> T {
+    func sRegister<T: UITableView>(_ cellClass: AnyClass, bundle: Bundle? = nil) -> T {
         let identifier = String(describing: cellClass)
-        self.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        self.register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
         return self as! T
     }
 
