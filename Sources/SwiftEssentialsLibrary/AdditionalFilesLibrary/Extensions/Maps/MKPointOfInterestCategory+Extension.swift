@@ -14,6 +14,71 @@ public extension MKPointOfInterestCategory {
     static let travelPointsOfInterest: [MKPointOfInterestCategory] = [.bakery, .brewery, .cafe, .restaurant, .winery, .hotel]
     static let defaultSymbolUIImage = UIImage(systemName: "mappin.and.ellipse")!
     
+    var displayName: String {
+        switch self {
+        case .airport:
+            return "Airport"
+        case .atm:
+            return "ATM"
+        case .bank:
+            return "Bank"
+        case .brewery:
+            return "Brewery"
+        case .winery:
+            return "Winery"
+        case .restaurant:
+            return "Restaurant"
+        case .nightlife:
+            return "Nightlife"
+        case .foodMarket:
+            return "Food Market"
+        case .store:
+            return "Store"
+        case .bakery:
+            return "Bakery"
+        case .cafe:
+            return "Cafe"
+        case .campground:
+            return "Campground"
+        case .hotel:
+            return "Hotel"
+        case .pharmacy:
+            return "Pharmacy"
+        case .carRental:
+            return "Car Rental"
+        case .gasStation:
+            return "Gas Station"
+        case .evCharger:
+            return "EV Charger"
+        case .laundry:
+            return "Laundry"
+        case .university:
+            return "University"
+        case .school:
+            return "School"
+        case .library:
+            return "Library"
+        case .parking:
+            return "Parking"
+        case .theater:
+            return "Theater"
+        case .marina:
+            return "Marina"
+        case .museum:
+            return "Museum"
+        case .nationalPark:
+            return "National Park"
+        case .park:
+            return "Park"
+        case .postOffice:
+            return "Post Office"
+        case .publicTransport:
+            return "Public Transport"
+        default:
+            return "Unknown Category"
+        }
+    }
+    
     var symbolUIImage: UIImage {
         switch self {
         case .airport:
