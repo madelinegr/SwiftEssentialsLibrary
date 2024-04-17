@@ -85,7 +85,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
             self.photo = photo
         }
         
-        print("ORIENTATION", photo.metadata[kCGImagePropertyOrientation as String])
+        print("ORIENTATION", photo.metadata[kCGImagePropertyOrientation as String] ?? "na")
         
     }
 

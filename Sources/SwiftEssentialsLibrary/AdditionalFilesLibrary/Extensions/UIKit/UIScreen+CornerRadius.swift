@@ -8,7 +8,7 @@
 import UIKit
 
 public extension UIScreen {
-    public var cornerRadius: CGFloat {
+    var cornerRadius: CGFloat {
         guard let cornerRadius = self.value(forKey:"_displayCornerRadius") as? CGFloat else {
             return 0
         }

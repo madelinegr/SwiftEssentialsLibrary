@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIView {
     
-    public func becomeRound() {
+    func becomeRound() {
         self.layer.cornerRadius = self.bounds.width / 2
         self.layer.cornerCurve = .continuous
     }
@@ -18,7 +18,7 @@ public extension UIView {
 
 public extension UIView {
     
-    public func roundCornersViaCornerRadius(radius: CGFloat) {
+    func roundCornersViaCornerRadius(radius: CGFloat) {
         layer.cornerCurve = .continuous
         layer.cornerRadius = radius
     }

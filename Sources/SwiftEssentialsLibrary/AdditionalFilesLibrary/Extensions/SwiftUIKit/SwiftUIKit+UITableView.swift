@@ -58,7 +58,6 @@ public extension UITableView {
     @discardableResult
     func sDelegate<T: UITableView>(_ delegate: UITableViewDelegate) -> T {
         self.delegate = delegate
-        self.allowsSelection
         return self as! T
     }
     

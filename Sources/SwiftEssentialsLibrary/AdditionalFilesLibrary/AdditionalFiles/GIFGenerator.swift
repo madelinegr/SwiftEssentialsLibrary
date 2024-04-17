@@ -28,7 +28,7 @@ import UIKit
     open func generateGifFromImages(imagesArray:[UIImage], repeatCount: Int = 0, frameDelay: TimeInterval, destinationURL: URL, callback:@escaping (_ data: Data?, _ error: NSError?) -> ()) {
         
         DispatchQueue.global(qos: .background).async { () -> Void in
-            guard let imageDestination = CGImageDestinationCreateWithURL(destinationURL as CFURL, kUTTypeGIF, imagesArray.count, nil) else { return }
+            guard let imageDestination = CGImageDestinationCreateWithURL(destinationURL as CFURL, UTType.gif.identifier as CFString, imagesArray.count, nil) else { return }
             let frameProperties = [kCGImagePropertyGIFDictionary as String: [
                 kCGImagePropertyGIFDelayTime as String: frameDelay,
 //                kCGImagePropertyGIFCanvasPixelWidth as String: 50.0, //not working for me
