@@ -34,7 +34,7 @@ public extension UIButton {
     }
 
     @discardableResult
-    func sImage<T: UIButton>(_ image: UIImage) -> T {
+    func sImage<T: UIButton>(_ image: UIImage?) -> T {
         self.setImage(image, for: .normal)
         return self as! T
     }
