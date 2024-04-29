@@ -30,6 +30,10 @@ public extension String {
     var emojiString: String { emojis.map { String($0) }.reduce("", +) }
 
     var emojis: [Character] { filter { $0.isEmoji } }
+    
+    var emojilessString: String {
+        self.filter { !$0.isEmoji }.reduce("", { $0 + String($1) })
+    }
 
     var emojiScalars: [UnicodeScalar] { filter { $0.isEmoji }.flatMap { $0.unicodeScalars } }
 }
