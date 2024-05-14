@@ -360,6 +360,9 @@ public extension Date {
     var weekBefore: Date {
         return Calendar.current.date(byAdding: .day, value: -7, to: self)!
     }
+    var weekAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 7, to: self)!
+    }
     var dayAfter: Date {
         return Calendar.current.date(byAdding: .day, value: 1, to: self)!
     }
