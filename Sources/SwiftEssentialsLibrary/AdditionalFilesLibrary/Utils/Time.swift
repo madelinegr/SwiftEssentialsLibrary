@@ -379,12 +379,12 @@ public extension Date {
 
 public extension Date {
     
-    func isMoreRecentThan(_ otherDate: Date) -> Bool {
+    func isAfter(_ otherDate: Date) -> Bool {
         return self.timeIntervalSince1970 > otherDate.timeIntervalSince1970
     }
     
-    func isSame(_ component: Calendar.Component, as otherDate: Date) -> Bool {
-        return Calendar.current.component(component, from: self) == Calendar.current.component(component, from: otherDate)
+    func isSame(_ component: Calendar.Component, as otherDate: Date, basedOnCalendar calendar: Calendar = Calendar.current) -> Bool {
+        return calendar.component(component, from: self) == calendar.component(component, from: otherDate)
     }
     
 }
