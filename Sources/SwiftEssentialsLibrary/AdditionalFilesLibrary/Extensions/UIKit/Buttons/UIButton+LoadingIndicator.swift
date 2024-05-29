@@ -21,13 +21,13 @@ public extension UIButton {
     enum LoadingPosition {
         case center, left
     }
-    func loadingIndicator(_ show: Bool, position: LoadingPosition = .center) {
+    func loadingIndicator(_ show: Bool, color: UIColor = .white, position: LoadingPosition = .center) {
         if show {
             guard self.viewWithTag(UIButton.LoadingIndicatorTag) == nil else { return } //don't add a loading indicator twice
             self.isEnabled = false
 //            self.alpha = 0.5
             let indicator = UIActivityIndicatorView()
-            indicator.color = .white
+            indicator.color = color
             let buttonHeight = self.bounds.size.height
             let buttonWidth = self.bounds.size.width
             switch position {
@@ -53,12 +53,12 @@ public extension UIButton {
         }
     }
     
-    func checkMark(_ show: Bool, position: LoadingPosition = .center) {
+    func checkMark(_ show: Bool, color: UIColor = .white, position: LoadingPosition = .center) {
         if show {
             guard self.viewWithTag(UIButton.CheckMarkTag) == nil else { return } //don't add a checkmark twice
             self.isEnabled = false
             let checkmark = UIImageView(image: UIImage(systemName: "checkmark"))
-            checkmark.tintColor = .white
+            checkmark.tintColor = color
             let buttonHeight = self.bounds.size.height
             let buttonWidth = self.bounds.size.width
             switch position {
