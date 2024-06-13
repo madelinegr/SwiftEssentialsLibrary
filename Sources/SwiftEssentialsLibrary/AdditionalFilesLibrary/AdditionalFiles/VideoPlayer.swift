@@ -9,7 +9,7 @@ import AVFoundation
 import UIKit
 import Combine
 
-open class PlayerView: UIView {
+open class CustomPlayerView: UIView {
 
     public var player: AVPlayer? {
         get {
@@ -30,7 +30,7 @@ open class PlayerView: UIView {
     }
 }
 
-public protocol VideoPlayerDelegate {
+public protocol CustomVideoPlayerDelegate {
     func downloadedProgress(progress:Double)
     func readyToPlay()
     func didChangeTime(progress:Double, seconds:Double)
@@ -40,7 +40,7 @@ public protocol VideoPlayerDelegate {
     func didPausePlaying()
 }
 
-open class VideoPlayer : NSObject {
+open class CustomVideoPlayer : NSObject {
 
     open var assetPlayer:AVPlayer?
     open var playerItem:AVPlayerItem?
@@ -48,12 +48,12 @@ open class VideoPlayer : NSObject {
     open var videoOutput:AVPlayerItemVideoOutput?
 
     open var assetDuration:Double = 0
-    open var playerView:PlayerView?
+    open var playerView:CustomPlayerView?
 
     open var autoRepeatPlay:Bool = true
     open var autoPlay:Bool = true
 
-    open var delegate:VideoPlayerDelegate?
+    open var delegate:CustomVideoPlayerDelegate?
     
     public let videoContext: UnsafeMutableRawPointer? = nil
 
@@ -78,7 +78,7 @@ open class VideoPlayer : NSObject {
 
     // MARK: - Init
 
-    public convenience init(urlAsset:NSURL, view:PlayerView, startAutoPlay:Bool = true, repeatAfterEnd:Bool = true) {
+    public convenience init(urlAsset:NSURL, view:CustomPlayerView, startAutoPlay:Bool = true, repeatAfterEnd:Bool = true) {
         self.init()
 
         playerView = view
