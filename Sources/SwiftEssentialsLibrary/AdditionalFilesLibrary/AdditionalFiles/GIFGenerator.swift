@@ -27,10 +27,12 @@ import UIKit
      */
     open func generateGifFromImages(imagesArray:[UIImage], repeatCount: Int = 0, frameDelay: TimeInterval, destinationURL: URL, callback:@escaping (_ data: Data?, _ error: NSError?) -> ()) {
         
-        DispatchQueue.global(qos: .background).async { () -> Void in
+        DispatchQueue.global(qos: .utility).async { () -> Void in
+            print("Starting gif maker")
             guard let imageDestination = CGImageDestinationCreateWithURL(destinationURL as CFURL, UTType.gif.identifier as CFString, imagesArray.count, nil) else { return }
             let frameProperties = [kCGImagePropertyGIFDictionary as String: [
                 kCGImagePropertyGIFDelayTime as String: frameDelay,
+                kCGImagePropertyGIFHasGlobalColorMap as String: false
 //                kCGImagePropertyGIFCanvasPixelWidth as String: 50.0, //not working for me
 //                kCGImagePropertyGIFCanvasPixelHeight as String: 50.0,
             ]] as CFDictionary
@@ -39,7 +41,7 @@ import UIKit
             for image in imagesArray {
                 CGImageDestinationAddImage(imageDestination, image.cgImage!, frameProperties)
             }
-            if CGImageDestinationFinalize(imageDestination) {
+            if CGImageDestinationFinalize(imageDestination) { //this is what takes a while, everything else is quick
                 do {
                     let data = try Data(contentsOf: destinationURL)
                     callback(data, nil)
