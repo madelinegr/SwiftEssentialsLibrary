@@ -60,6 +60,34 @@ public class Haptics: NSObject {
         try? rumblePlayer?.resume(atTime: time)
     }
     
+    public func vibrateMoreIntenselyFor(seconds: Double) {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+            
+            let buildUpHaptic = CHHapticEvent(
+                eventType: .hapticContinuous,
+                parameters: [
+                    CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.7),
+                    CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3),
+                    CHHapticEventParameter(parameterID: .attackTime, value: 0),],
+                relativeTime: 0,
+                duration: seconds)
+            let curve = CHHapticParameterCurve(
+                parameterID: .hapticIntensityControl,
+                controlPoints: [
+                    .init(relativeTime: 0, value: 0), //just needs to start at any time relatively soon enough
+                    .init(relativeTime: seconds, value: 1),
+                ],
+                relativeTime: 0)
+            player = try engine!.makeAdvancedPlayer(with: CHHapticPattern(events: [buildUpHaptic], parameterCurves: [curve]))
+            try player!.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
+        }
+    }
+    
     //MARK: - Twodrop
     
     public func playTwodropHaptics(duration: Double) {
