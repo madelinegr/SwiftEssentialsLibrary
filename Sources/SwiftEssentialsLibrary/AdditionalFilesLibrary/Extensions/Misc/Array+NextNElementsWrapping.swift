@@ -10,6 +10,8 @@ import Foundation
 extension Array {
     public func nextNElementsWrapping(fromIndex currentIndex: Int, count: Int) -> [Element] {
         guard !self.isEmpty else { return [] }
+        guard currentIndex >= 0 && currentIndex < self.count else { return [] }
+        guard count > 0 else { return [] }
         
         var result = [Element]()
         let totalElements = self.count
@@ -24,6 +26,8 @@ extension Array {
     
     public func previousNElementsWrapping(fromIndex currentIndex: Int, count: Int) -> [Element] {
         guard !self.isEmpty else { return [] }
+        guard currentIndex >= 0 && currentIndex < self.count else { return [] }
+        guard count > 0 else { return [] }
         
         var result = [Element]()
         let totalElements = self.count
