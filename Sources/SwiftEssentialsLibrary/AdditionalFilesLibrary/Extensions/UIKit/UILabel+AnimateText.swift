@@ -77,7 +77,8 @@ public extension UILabel {
                 }
             } else {
                 let newCharacter = mutableAttributedText.string[characterIndex]
-                if !CharacterSet.newlines.contains(newCharacter.unicodeScalars.first!), let impactIntensity {
+                if let firstScalar = newCharacter.unicodeScalars.first, !CharacterSet.newlines.contains(firstScalar),
+                    let impactIntensity {
                     UIImpactFeedbackGenerator(style: .rigid).impactOccurred(intensity: impactIntensity)
                 }
             }
