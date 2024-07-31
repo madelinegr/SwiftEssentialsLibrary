@@ -90,13 +90,13 @@ public class Haptics: NSObject {
     
     //MARK: - Twodrop
     
-    public func playTwodropHaptics(duration: Double) {
+    public func playTwodropHaptics(duration: Double, maxDuration: Double? = nil) {
         guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
         do {
             engine = try CHHapticEngine()
             try engine?.start()
             
-            rumblePlayer = try engine!.makeAdvancedPlayer(with: CHHapticPattern(events: twodropHapticEvents(duration: duration), parameterCurves: twodropParamCurve(duration: duration)))
+            rumblePlayer = try engine!.makeAdvancedPlayer(with: CHHapticPattern(events: twodropHapticEvents(duration: duration, maxDuration: maxDuration ?? 0), parameterCurves: twodropParamCurve(duration: duration)))
             try rumblePlayer!.start(atTime: 0)
         } catch {
             print("Failed to play pattern: \(error.localizedDescription).")
@@ -113,7 +113,7 @@ public class Haptics: NSObject {
                 relativeTime: 0)
         ]
     }
-    public func twodropHapticEvents(duration: Double) -> [CHHapticEvent] {
+    public func twodropHapticEvents(duration: Double, maxDuration: Double = 0) -> [CHHapticEvent] {
         let buildUpHaptic = CHHapticEvent(
             eventType: .hapticContinuous,
             parameters: [
@@ -121,7 +121,7 @@ public class Haptics: NSObject {
                 CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.5),
                 CHHapticEventParameter(parameterID: .attackTime, value: 0),],
             relativeTime: 0,
-            duration: duration)
+            duration: duration + maxDuration)
         return [buildUpHaptic]
     }
     
