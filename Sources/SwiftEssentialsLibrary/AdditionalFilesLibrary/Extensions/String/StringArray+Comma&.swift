@@ -23,4 +23,16 @@ public extension Array<String> {
         }
         return string
     }
+    
+    func asCommaSeparatedString() -> String {
+        var string = ""
+        for i in 0..<self.count {
+            string += self[i]
+            if i < self.count-1 {
+                string += ", "
+            }
+        }
+        return string
+    }
+    
 }
