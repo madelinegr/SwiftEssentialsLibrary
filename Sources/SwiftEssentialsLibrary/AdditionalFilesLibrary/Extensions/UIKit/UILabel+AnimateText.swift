@@ -76,9 +76,12 @@ public extension UILabel {
                     timer.fireDate = Date() //resume timer
                 }
             } else {
+                let isVisible = self.window != nil
                 let newCharacter = mutableAttributedText.string[characterIndex]
-                if let firstScalar = newCharacter.unicodeScalars.first, !CharacterSet.newlines.contains(firstScalar),
-                    let impactIntensity {
+                if let firstScalar = newCharacter.unicodeScalars.first,
+                    !CharacterSet.newlines.contains(firstScalar),
+                    let impactIntensity,
+                   isVisible {
                     UIImpactFeedbackGenerator(style: .rigid).impactOccurred(intensity: impactIntensity)
                 }
             }
