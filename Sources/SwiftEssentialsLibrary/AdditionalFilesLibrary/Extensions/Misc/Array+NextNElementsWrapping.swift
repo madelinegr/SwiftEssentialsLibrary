@@ -34,7 +34,9 @@ extension Array {
 
         for i in 0..<count {
             let index = (currentIndex - i + totalElements) % totalElements
-            result.append(self[index])
+            if let item = self[safe: index] {
+                result.append(item)
+            }
         }
 
         return result
