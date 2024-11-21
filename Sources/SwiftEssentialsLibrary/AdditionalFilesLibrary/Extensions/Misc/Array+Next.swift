@@ -11,6 +11,6 @@ public extension RandomAccessCollection where Index == Int {
     func next(after index: Index) -> Element? {
         guard !isEmpty else { return nil } // Return nil if the collection is empty
         let nextIndex = index + 1
-        return nextIndex < count ? self[nextIndex] : self[startIndex]
+        return nextIndex < count ? self[safe: nextIndex] : self[safe: startIndex]
     }
 }
