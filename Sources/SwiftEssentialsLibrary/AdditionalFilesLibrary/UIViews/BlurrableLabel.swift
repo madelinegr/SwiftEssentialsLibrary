@@ -333,10 +333,6 @@ open class AnimatedBlurLabel : UILabel {
     
     fileprivate func prepareImages() {
         if let renderedTextImage = renderedTextImage {
-            if TARGET_IPHONE_SIMULATOR == 1 {
-                print("Note: AnimatedBlurLabel is running on the Simulator. " +
-                      "Software rendering is used. This might take a few seconds ...")
-            }
             
             blurredImagesReady = false
             blurredImages = [UIImage]()
